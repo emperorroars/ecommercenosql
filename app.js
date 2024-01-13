@@ -3,11 +3,11 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoConnect=require('./util/database').mongoConnect
+const User = require('./models/user');
 
 /*const errorController = require('./controllers/error');
 const sequelize = require('./util/database');
 const Product = require('./models/product');
-const User = require('./models/user');
 const Cart = require('./models/cart');
 const CartItem = require('./models/cart-item');
 const Order = require('./models/order');
@@ -25,13 +25,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
- /* User.findById(1)
+ User.findById('65a25ae23eaef296889cbabf')
     .then(user => {
+      console.log("user found",user)
       req.user = user;
       next();
     })
-    .catch(err => console.log(err));*/
-    next()
+    .catch(err => console.log(err));
+    
 });
 
 app.use('/admin', adminRoutes);
