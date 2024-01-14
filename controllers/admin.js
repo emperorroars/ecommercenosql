@@ -61,7 +61,8 @@ exports.postEditProduct = (req, res, next) => {
   const updatedPrice = req.body.price;
   const updatedImageUrl = req.body.imageUrl;
   const updatedDesc = req.body.description;
-const product = new Product(
+
+  const product = new Product(
     updatedTitle,
     updatedPrice,
     updatedDesc,
@@ -76,7 +77,6 @@ const product = new Product(
     })
     .catch(err => console.log(err));
 };
-
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll()

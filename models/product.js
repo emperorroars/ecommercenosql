@@ -10,6 +10,7 @@ class Product {
     this._id = id ? new mongodb.ObjectId(id) : null;
     this.userId = userId;
   }
+
   save() {
     const db = getDb();
     let dbOp;
@@ -29,6 +30,7 @@ class Product {
         console.log(err);
       });
   }
+
   static fetchAll() {
     const db = getDb();
     return db
@@ -58,7 +60,8 @@ class Product {
         console.log(err);
       });
   }
-   static deleteById(prodId) {
+
+  static deleteById(prodId) {
     const db = getDb();
     return db
       .collection('products')
@@ -71,26 +74,5 @@ class Product {
       });
   }
 }
-/*const Product = sequelize.define('product', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true
-  },
-  title: Sequelize.STRING,
-  price: {
-    type: Sequelize.DOUBLE,
-    allowNull: false
-  },
-  imageUrl: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  description: {
-    type: Sequelize.STRING,
-    allowNull: false
-  }
-});*/
 
 module.exports = Product;
