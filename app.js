@@ -1,5 +1,5 @@
 const path = require('path');
-require("dotenv").config()
+require("dotenv").configure()
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  User.findById('65a4f3e7f9918974dfba9cdf')
+  User.findById('5bab316ce0a7c75f783cb8a8')
     .then(user => {
       req.user = user;
       next();
